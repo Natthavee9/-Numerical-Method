@@ -1,0 +1,1 @@
+E = abs((x_new-x_old)/x_new);

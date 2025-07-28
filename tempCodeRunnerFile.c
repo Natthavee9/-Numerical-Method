@@ -1,0 +1,1 @@
+printf("ans = %.4lf\n",xM);

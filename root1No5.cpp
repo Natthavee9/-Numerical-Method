@@ -6,11 +6,11 @@ double cal(double x){
     return pow(x,4)-13;
 }
 int main(){
-    double xL,xR,x,E,fxR,fxL,fx,x_old,x_new;
+    double xL,xR,x,E = 1.0,fxR,fxL,fx,x_old,x_new;
     int iteration;
     xL = 1.5;
     xR = 2.0;
-    for(iteration = 0 ;iteration <= 4;iteration++){
+    for(iteration = 0 ;E>0.000001;iteration++){
         fxR = cal(xR);
         fxL = cal(xL);
         x = ((xL*fxR)-(xR*fxL))/(fxR-fxL);
@@ -35,7 +35,7 @@ int main(){
             x_old =x;
         }
     }
-    cout<< "x = " << fixed  << setprecision(6) << x <<endl;
-    cout<< "E = " << fixed << setprecision(10) << E <<endl;
+    cout<< "x = " << setprecision(7) << x <<endl;
+    cout<< "E = "  << fixed << setprecision(10) << E <<endl;
     return 0;
 }

@@ -21,33 +21,20 @@ int main(){
               fxM = pow(xM,n)-x;
               fxR = pow(xR,n)-x;
               xM_new = xM;
-              if(iteration == 0){
-                 if(fxM*fxR < 0){
-                     xL = xM;
-                 }
-                 else{
-                     xR = xM;
-                 }
-                 iteration++;
-                 xM_old = xM;
-                 continue;
-              }
-
-              if(iteration > 0){
-                     E = fabs((xM_new-xM_old)/xM_new);
-                     if(E < 0.0001){
-                            break;
-                     }
-              }
-              xM_old = xM;
+       
               if(fxM*fxR < 0){
                      xL = xM;
               }
               else{
                      xR = xM;
               }
-              iteration++; 
-       }while(1);
+               
+              if(iteration > 0){
+                     E = fabs((xM_new-xM_old)/xM_new);
+              }
+              xM_old = xM;
+              iteration++;
+       }while(E > 0.000001);
        printf("ans = %.4lf\n",xM);
        return 0;
 }
